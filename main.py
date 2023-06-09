@@ -220,10 +220,16 @@ class AudioTool(BoxLayout):
         self.inPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/testaudio.mp4"
         print("self.outPutFile")
         print(self.outPutFile)
+        
+        
+        '''
         command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
         #ffmpeg -i <infile> -ac 2 -f wav <outfile>
         #ffmpeg_cmd = 'ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output.wav'
         result_code = os.system(command2wav + ' > output.txt')
+        '''
+        
+        os.system(f"""ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output3.wav""")  
         
 
         
@@ -233,6 +239,7 @@ class AudioTool(BoxLayout):
         print(os.listdir())
         print("finished creating wav file")
         
+        '''
         if os.path.exists('output.txt'):
             fp = open('output.txt', "r")
             output = fp.read()
@@ -240,7 +247,7 @@ class AudioTool(BoxLayout):
             os.remove('output.txt')
             print("command output")
             print(output)        
-       
+        '''
         
         
         
