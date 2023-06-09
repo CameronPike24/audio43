@@ -229,9 +229,12 @@ class AudioTool(BoxLayout):
         result_code = os.system(command2wav + ' > output.txt')
         '''
         
-        os.system(f"""ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output3.wav""")  
+        #os.system(f"""ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output3.wav""")  
         
-
+        result = os.system('ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 ' + self.outPutFile) 
+      
+        print("result")
+        print(result)
         
         
         time.sleep(10)
