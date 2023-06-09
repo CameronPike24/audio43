@@ -231,10 +231,17 @@ class AudioTool(BoxLayout):
         
         #os.system(f"""ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output3.wav""")  
         
-        result = os.system('ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 ' + self.outPutFile) 
+        #result = os.system('ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 ' + self.outPutFile) 
+        
+        
+        input = ffmpeg.input('10.mp4')
+        audio = input.audio.filter("aecho", 0.8, 0.9, 1000, 0.3)
+        video = input.video.hflip()
+        out = ffmpeg.output(audio, video, 'out.mp4')
+        
+        
+        
       
-        print("result")
-        print(result)
         
         
         time.sleep(10)
